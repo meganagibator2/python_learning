@@ -1,0 +1,90 @@
+secret = <число от 1 до 20>
+difficutl = input('Выберите уровень сложности(легкий, средний, сложный): ')
+win = False
+
+if difficutl == 'легкий':
+    for i in range(10):
+        print('Попыток осталось -', 10 - i)
+        a = int(input("Введите число от 1 до 20: "))
+        if a == secret:
+            win = True
+            break
+        elif a > secret:
+            print('-' * 30)
+            print('Меньше')
+            print('-' * 30)
+        elif a < secret:
+            print('-' * 30)
+            print('Больше') 
+            print('-' * 30)
+
+
+elif difficutl == 'средний':
+    for i in range(5):
+        print('Попыток осталось -', 5 - i)
+        a = int(input("Введите число от 1 до 20: "))
+        if i == 1:
+            if secret % 2 == 0:
+                print('-' * 30)
+                print('💡 Подсказка: Число четное')
+        if a == secret:
+            win = True
+            break
+        elif a > secret:
+            print('-' * 30)
+            print('Меньше')
+            print('-' * 30)
+        elif a < secret:
+            print('-' * 30)
+            print('Больше') 
+            print('-' * 30)
+        
+
+elif difficutl == 'сложный':
+    for i in range(3):
+        print('Попыток осталось -', 3 - i)
+        a = int(input("Введите число от 1 до 20: "))
+        if a == secret:
+            win = True
+            break
+        elif abs(a - secret) <=3:
+            print('-' * 30)
+            print('🔥 Горячо')
+        elif abs(a - secret) <=5:
+            print('-' * 30)
+            print('😐 Тепло') 
+        elif abs(a - secret) > 5:
+            print('-' * 30)
+            print('❄️  Холодно')
+        
+        
+        if i == 0:
+            if secret % 2 == 0:
+                print('-' * 30)
+                print('💡 Подсказка: Число четное')
+                print('-' * 30)
+            else:
+                print('-' * 30)
+                print('💡 Подсказка: Число нечетное')
+                print('-' * 30)
+        elif i == 1:
+            if secret > 10:
+                print('-' * 30)
+                print('💡 Подсказка: Число больше 10')
+                print('-' * 30)
+            elif secret < 11:
+                print('-' * 30)    
+                print('💡 Подсказка: Число меньше 11')    
+                print('-' * 30)
+else:
+    print("Ошибка: выберите легкий, средний или сложный уровень.")
+    exit()
+if win:
+    print("=" * 30)
+    print("🎉 ПОЗДРАВЛЯЕМ, ВЫ ВЫИГРАЛИ! 🎉")
+    print("=" * 30)
+else:
+    print("=" * 30)
+    print("💀 ВЫ ПРОИГРАЛИ! 💀")
+    print("Загаданное число:", secret)
+    print("=" * 30)
